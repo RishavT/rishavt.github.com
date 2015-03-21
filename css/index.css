@@ -14,3 +14,9 @@
     width:133px;
 
 }
+
+table,th,td {
+    text-align:left;
+    border: 1px solid black;
+    border-collapse:collapse;
+}
