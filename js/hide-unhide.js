@@ -1,4 +1,27 @@
-function display(action, id)
+function show(id)
+{
+    document.getElementById(id + '-heading').href = "javascript:hide('"+id+"')";
+    
+    var growDiv = document.getElementById(id);
+    items = document.getElementsByClassName('collapse');
+    for (var i = 0; i < items.length; i ++)
+    {
+        if (items[i].clientHeight && items[i].id != id)
+            hide(items[i].id);
+    }
+    var wrapper = document.querySelector('#content-' + id);
+    growDiv.style.height = wrapper.clientHeight + "px";
+}
+
+function hide(id)
+{
+    document.getElementById(id + '-heading').href = "javascript:show('"+id+"')";
+    var growDiv = document.getElementById(id);
+    growDiv.style.height = 0;
+}
+
+//Old Function
+/*function display1(action, id)
 {
     console.log(id);
     if (action == 'show')
@@ -20,4 +43,4 @@ function display(action, id)
         document.getElementById(id + '-heading').href = "javascript:display('show', '"+id+"')";
     }
 }
-
+*/
