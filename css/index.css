@@ -1,5 +1,6 @@
 body {
     font-family: 'Source Sans Pro', sans-serif;
+    background-image: url("/images/background.png");
 }
 #container {
     width:1000px;
@@ -14,6 +15,24 @@ body {
 
 h2,h3,h4 {
     font-family: 'Raleway';
+}
+
+h3 {
+    font-size:22px;
+}
+
+h4 {
+    font-size:18px;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-image: -webkit-linear-gradient(left, #ccc, #333, #ccc);
+    background-image: -moz-linear-gradient(left, #ccc, #333, #ccc);
+    background-image: -ms-linear-gradient(left, #ccc, #333, #ccc);
+    background-image: -o-linear-gradient(left, #ccc, #333, #ccc);
 }
 
 #profile-pic {
