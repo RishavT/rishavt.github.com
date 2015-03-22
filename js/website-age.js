@@ -19,5 +19,6 @@ var start = 1426963766876;
 var age = current-start;
 //console.log(getString(age));
 document.getElementById("website-age-text").innerHTML = 
-    "PS: This website is still under constuction. In fact, it is only " + getString(age) + " old. So it may look slightly shallow right now, but I'm working on it :D Thanks for your patience!";
+    "PS: This website is still under constuction. In fact, it is only " + getString(age)
+    + " old. So it may look slightly shallow right now, but I'm working on it :D Thanks for your patience!";
 }
