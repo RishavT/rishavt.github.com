@@ -9,6 +9,8 @@
         <title>Rishav Thakker</title>
         
         <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link href='http://fonts.googleapis.com/css?family=Raleway:400' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
     </head>
     <body id="body">
         <div id="container">
@@ -25,10 +27,14 @@
                 <p>I love to code, hack, mess around with new technology, play the guitar,
                 and a lot more. To know more about me, click one of the links below!
                 </p>
+                <br>
             </div>
             
-            <h3><a id="education-heading" href="javascript:display('show', 'education')">Education</a></h3>
-            <div id="education" style="display:none">
+            
+            <hr>
+            
+            <h3><a class="collapse-heading" id="education-heading" href="javascript:display('show', 'education')">Education</a></h3>
+            <div class="collapse" id="education" style="display:none">
                 <table>
                     <tr>
                         <th>Timeline</th>
@@ -51,39 +57,73 @@
                         <td>Dhirubhai Ambani Institute of Information and Communication Technology</td>
                     </tr>
                 </table>
+                <br>
             </div>
             
-            <h3><a id="workexp-heading" href="javascript:display('show', 'workexp')">Work Experience</a></h3>
-            <div id="workexp" style="display:none">
+            <hr>
+            
+            <h3><a class="collapse-heading" id="workexp-heading" href="javascript:display('show', 'workexp')">Work Experience</a></h3>
+            <div class="collapse" id="workexp" style="display:none">
                 <p>Currently an intern at Primavera Systems, Oracle India Private Limited, as an RQS Engineer.</p>
+                <br>
             </div>
             
-            <h3><a id="projects-heading" href="javascript:display('show', 'projects')">Projects</a></h3>
-            <div id="projects" style="display:none">
+            <hr>
+            
+            <h3><a class="collapse-heading" id="projects-heading" href="javascript:display('show', 'projects')">Projects</a></h3>
+            <div class="collapse" id="projects" style="display:none">
+                <div id="proj-pandapocalypse">
+                    <h4>PandApocalypse</h4>
+                    <p>PandApocalypse is a First Person Shooter (FPS) video game, in which you have to save the world
+                        from a swarm of evil pandas which constantly keep falling from heaven. It is a cross platform game built using the Panda3D
+                        game engine, written purely in Python.
+                    </p>
+                    <p>Download it from <a href="projects/pandapocalypse.html">here!</a></p>
+                </div>
+                <div id="proj-chatkeep">
+                    <h4>Chatkeep</h4>
+                    <p>Chatkeep is a essentially a storehouse for your Google chats. It allows you to store your favourite chats in the form of snippets,
+                        allowing you to find and relive your memories without the effort of going through billions of lines of "Hey, What's up! Nothing much!".
+                        It also serves as a backup in case you accidentally delete those chats from GTalk.
+                    </p>
+                    <p>Check it out over <a href="projects/chatkeep.html">here!</a></p>
+                </div>
+                <div id="proj-ridebuddy">
+                    <h4>RideBuddy</h4>
+                    <p>RideBuddy is a carpooling website which lets you share your ride with others traveling to the same location (or vice versa) with ease.</p>
+                    <p>Check it out over <a href="http://beta.ridebuddy.co/">here!</a></p>
+                </div>
                 <div id="proj-nfuploader">
-                    <h3>Nautiluf Facebook Uploader (obsolete)</h3>
+                    <h4>Nautiluf Facebook Uploader (obsolete)</h4>
                     <p>Nautilus Facebook Uploader (nfuploader) was a desktop application allowing for easy upload of pictures to facebook.
                         It allowed for simple right-click uploads, batch photo uploads, creating new albums, etc. I had made this back when
                         facebook photo uploading was not up to the mark for linux, and it's not really needed anymore since coming of easy-to-use
                         web based uploaders.
                     </p>
-                    <p>It is completely open source! Take a look at it over <a href="projects/nfuploader.html">here.</a></p>
+                    <p>Check it out over <a href="projects/nfuploader.html">here!</a></p>
                 </div>
                 <div id="proj-smss">
-                    <h3>SMSS (obsolete)</h3>
+                    <h4>SMSS (obsolete)</h4>
                     <p>SMSS was a desktop application to send free text messages (SMS) via online gateways such as <a href="http://way2sms.com">Way2SMS</a>.
                         It allowed for bulk messages involving multiple recipients, as well as a google contact sync.
                         I have stopped maintaining this project as websites such as Way2SMS discourage such things and constantly keep changing their APIs 
                         every few months.
                     </p>
-                    <p>It is completely open source! Take a look at it over <a href=smss">here.</a></p>
-
+                    <p>Check it out over <a href="smss">here!</a></p>
+                </div>
+                <br>
             </div>
             
-            <h3><a id="hobbies-heading" href="javascript:display('show', 'hobbies')">Hobbies</a></h3>
-            <div id="hobbies" style="display:none">
+            <hr>
+            
+            <h3><a class="collapse-heading" id="hobbies-heading" href="javascript:display('show', 'hobbies')">Hobbies</a></h3>
+            <div class="collapse" id="hobbies" style="display:none">
                 <p>Coming Soon..</p>
+                <br>
             </div>
+            
+            <hr>
+            
             <p id="website-age-text">PS: This website is still under constuction.</p>
         </div>
     </body>
