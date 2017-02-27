@@ -4,48 +4,37 @@ var gulp = require('gulp');
 // Load Plugins
 var gulpLoadPlugins = require('gulp-load-plugins');
 var plugins = gulpLoadPlugins({
-	pattern: ['gulp-*', 'gulp.*', 'main-bower-files'],
-	replaceString: /\bgulp[\-.]/
+  pattern: ['gulp-*', 'gulp.*', 'main-bower-files'],
+  replaceString: /\bgulp[\-.]/
 });
 
-var dest = 'build/';
+var dev_dest = 'dev/';
+var build_dest = 'build/';
 
 
-gulp.task('js', function() {
+gulp.task('bowerJs', function() {
 
-	var jsFiles = ['src/js/*.js'];
-	gulp.src(plugins.mainBowerFiles().concat(jsFiles))
-		.pipe(plugins.filter('**/*.js'))
-		.pipe(plugins.concat('main.js'))
-		.pipe(plugins.uglify())
-		.pipe(gulp.dest(dest + '/js'));
-
-});
-
-gulp.task('css', function() {
-
-	var cssFiles = ['src/css/*'];
-
-	return gulp.src(plugins.mainBowerFiles().concat(cssFiles))
-		.pipe(plugins.filter('**/*.css'))
-		.pipe(plugins.concat('main.css'))
-		// .pipe(plugins.uglify())
-		.pipe(gulp.dest(dest + 'css'));
+  gulp.src(plugins.mainBowerFiles())
+    .pipe(plugins.filter('**/*.js'))
+    .pipe(plugins.concat('main.js'))
+    .pipe(plugins.uglify())
+    .pipe(gulp.dest(build_dest + 'bower_components/js'))
+    .pipe(gulp.dest(dev_dest + 'bower_components/js'));
 
 });
 
-// // Compile sass files
-// gulp.task('sass', function() {
-//   return plugins.rubySass('src/scss/style.scss', {
-//       style: 'compressed'
-//     })
-//     .pipe(plugins.rename({
-//       suffix: '.min'
-//     }))
-//     .pipe(gulp.dest('build/css'));
-// });
-//
-// // Image optimization
+gulp.task('bowerCss', function() {
+
+  return gulp.src(plugins.mainBowerFiles())
+    .pipe(plugins.filter('**/*.css'))
+    .pipe(plugins.concat('main.css'))
+    // .pipe(plugins.uglify())
+    .pipe(gulp.dest(build_dest + 'bower_components/css'))
+    .pipe(gulp.dest(dev_dest + 'bower_components/css'));
+
+});
+
+// Image optimization
 // gulp.task('images', function() {
 //   return gulp.src('src/images/**/*')
 //     .pipe(plugins.cache(plugins.imagemin({
@@ -56,28 +45,22 @@ gulp.task('css', function() {
 //     .pipe(gulp.dest('build/img'));
 // });
 
-// Watch for changes
-gulp.task('watch', function() {
-  // Watch .js files
-  gulp.watch('src/js/*', ['js']);
-  // Watch .css files
-  gulp.watch('src/css/*', ['css']);
-	// Watch html files
-	gulp.watch('src/**/*.html', ['copy']);
-  // Watch image files
-  // gulp.watch('src/images/**/*', ['images']);
+// Copy Dev
+gulp.task('copy-dev', function() {
+  sourceFiles = 'src/**/*';
+  gulp.src(sourceFiles)
+    .pipe(gulp.dest(dev_dest));
 });
 
-// Copy
-gulp.task('copy', function() {
-	sourceFiles = 'src/**/*.html';
-	gulp.src(sourceFiles)
-		.pipe(gulp.dest(dest));
+// Watch for changes
+gulp.task('watch-dev', function() {
+  // Watch .js files
+  gulp.watch('src/**/*', ['copy-dev']);
 });
 
 
 // Serve
-gulp.task('serve', plugins.serve('build'));
+gulp.task('serve-dev', plugins.serve(dev_dest));
 
 // Default Task
-gulp.task('default', ['js', 'css', 'copy', 'watch', 'serve']);
+gulp.task('default', ['bowerJs', 'bowerCss', 'copy-dev', 'watch-dev', 'serve-dev']);
