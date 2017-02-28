@@ -1,23 +1,35 @@
 <!DOCTYPE html>
-<html>
+<!--
+  Hi, I'm Rishav Thakker and this would be the source of my Home Page.
 
-<head id="head">
+  All rights reserved for now.
+-->
+<html lang="en">
+
+<head>
   <meta charset="utf-8">
-  <script type='text/javascript' src='bower_components/js/main.js'></script>
-  <link rel="stylesheet" href="bower_components/css/main.css">
-  <script type='text/javascript' src='js/main.js'></script>
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Rishav Thakker's personal website.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <title>{{title}}</title>
+
+  <!-- MDL CSS Files -->
+  <!-- <link rel="stylesheet" href="bower_components/css/main.css"> -->
+  <link rel="stylesheet" href="https://code.getmdl.io/1.0.6/material.grey-pink.min.css" />
+
+  <!-- Local CSS files -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 
-<body id="body">
+<body>
   <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
     <header class="mdl-layout__header mdl-layout__header--waterfall">
       <div class="mdl-layout__header-row">
-        <span class="mdl-layout__title">
-                  <!-- <div class="portfolio-logo"></div> -->
-                  <span class="mdl-layout__title">{{title}}</span>
+        <span class="mdl-layout__title">{{title}}
         </span>
       </div>
       <div class="mdl-layout__header-row mdl-layout--large-screen-only">
@@ -29,34 +41,33 @@
       </div>
     </header>
     <div class="mdl-layout__drawer mdl-layout--small-screen-only">
+      <span class="mdl-layout__title">{{title}}</span>
       <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font">
-        <a class="mdl-navigation__link is-active" href="index.html">Profile</a>
-        <a class="mdl-navigation__link" href="blog.html">Blog</a>
-        <a class="mdl-navigation__link" href="about.html">About</a>
-        <a class="mdl-navigation__link" href="contact.html">Contact</a>
+        {{#each layout_titles}}
+        <a class="mdl-navigation__link" href="{{this.href}}">{{this.title}}</a>
+        {{/each}}
       </nav>
     </div>
 
     <main class="mdl-layout__content">
-      <div class="mdl-grid">
-        <div class="mdl-cell mdl-card mdl-shadow--4dp">
-          <div class="mdl-card__media">
-            <img class="article-image" src="images/example-work01.jpg" border="0" alt="">
-          </div>
+      <div class="mdl-grid portfolio-max-width">
+        {{#each workExpCards}}
+        <div class="mdl-cell mdl-card {{#unless @index}}mdl-cell--12-col{{/unless}} mdl-shadow--4dp portfolio-card">
+          <!-- <div class="mdl-card__media">
+              <img class="article-image" src="{{this.backgroundImage}}" border="0" alt="">
+          </div> -->
           <div class="mdl-card__title">
-            <h2 class="mdl-card__title-text">Blog template</h2>
+            <h2 class="mdl-card__title-text">{{this.title}}</h2>
           </div>
           <div class="mdl-card__supporting-text">
-            Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur ad consectetur sunt ullamco officia. Ex officia laborum et consequat duis.
-          </div>
-          <div class="mdl-card__actions mdl-card--border">
-            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="portfolio-example01.html">Read more</a>
+            {{this.description}}
           </div>
         </div>
+        {{/each}}
       </div>
       <footer class="mdl-mini-footer">
         <div class="mdl-mini-footer__left-section">
-          <div class="mdl-logo">Simple portfolio website</div>
+          <div class="mdl-logo">Rishav Thakker</div>
         </div>
         <div class="mdl-mini-footer__right-section">
           <ul class="mdl-mini-footer__link-list">
@@ -66,7 +77,14 @@
         </div>
       </footer>
     </main>
-
+  </div>
+  <script
+    src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
+    integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc="
+    crossorigin="anonymous">
+  </script>
+  <script type='text/javascript' src='bower_components/js/main.js'></script>
+  <script type='text/javascript' src='js/main.js'></script>
 </body>
 
 </html>
